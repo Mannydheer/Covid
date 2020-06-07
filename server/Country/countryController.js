@@ -1,8 +1,8 @@
-const {
-  getAllCountryData,
-  getSingleCountryData,
-} = require("../services/countryService");
+const { getAllCountryData, getSingleCountryData } = require("./countryService");
 
+//@endpoint GET /getCountries
+//@desc Fetch to API to get all countries available.
+//@access PUBLIC
 const countryController = async (req, res, next) => {
   try {
     let allCountryData = await getAllCountryData();
@@ -15,7 +15,9 @@ const countryController = async (req, res, next) => {
   }
 };
 
-//
+//@endpoint GET /getSingleCountry/:country
+//@desc Fetch to API to statistics about a single country.
+//@access PUBLIC
 const selectedCountryController = async (req, res) => {
   try {
     //get country from params.

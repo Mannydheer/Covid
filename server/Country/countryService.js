@@ -1,7 +1,7 @@
 const {
   getAllCountryDataGateway,
   getCountryDataGateway,
-} = require("../gateway/countryGateway");
+} = require("./countryGateway");
 
 const getAllCountryData = async () => {
   let getData = await getAllCountryDataGateway();
