@@ -6,7 +6,10 @@ const port = 4000;
 const fetch = require("isomorphic-fetch");
 
 //--------------------HANDLERS--------------------
-const { countryController } = require("./controllers/countryController");
+const {
+  countryController,
+  selectedCountryController,
+} = require("./controllers/countryController");
 
 //
 
@@ -28,6 +31,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use("/", express.static(__dirname + "/"));
 
 app.get("/", (req, res) => res.send("Hello World!"));
+//COUNTRY ENDPOINTS.
 app.get("/getCountries", countryController);
+app.get("/getSingleCountry/:country", selectedCountryController);
 
 app.listen(port, () => console.log(`listening at http://localhost:${port}`));
