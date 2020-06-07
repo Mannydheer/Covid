@@ -1,3 +1,4 @@
+//Responsible for input/output of endpoints to the Front End.
 const { getAllCountryData, getSingleCountryData } = require("./countryService");
 
 //@endpoint GET /getCountries
@@ -11,14 +12,15 @@ const countryController = async (req, res, next) => {
     }
     return res.status(200).json({ status: 200, allCountryData });
   } catch (err) {
-    throw new Error(err);
+    //next middleware will redirect the error to the node.js default error handler.
+    next(err);
   }
 };
 
 //@endpoint GET /getSingleCountry/:country
 //@desc Fetch to API to statistics about a single country.
 //@access PUBLIC
-const selectedCountryController = async (req, res) => {
+const selectedCountryController = async (req, res, next) => {
   try {
     //get country from params.
     let { country } = req.params;
@@ -31,7 +33,7 @@ const selectedCountryController = async (req, res) => {
     }
     res.status(200).json({ status: 200, countryData });
   } catch (err) {
-    throw new Error(err);
+    next(err);
   }
 };
 

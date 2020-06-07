@@ -1,3 +1,4 @@
+//Responsible for all error validation and payload manipulation.
 const {
   getAllCountryDataGateway,
   getCountryDataGateway,

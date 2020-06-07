@@ -1,4 +1,4 @@
-//Responsible for all API requests.
+//Responsible for all external API communication.
 
 const getAllCountryDataGateway = async () => {
   return await fetch("https://coronavirus-19-api.herokuapp.com/countries");

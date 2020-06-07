@@ -25,12 +25,10 @@ app.use(function (req, res, next) {
   next();
 });
 app.use(morgan("tiny"));
-app.use(express.static("./server/assets"));
 app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: false }));
 app.use("/", express.static(__dirname + "/"));
 
-app.get("/", (req, res) => res.send("Hello World!"));
 //COUNTRY ENDPOINTS.
 app.get("/getCountries", countryController);
 app.get("/getSingleCountry/:country", selectedCountryController);
