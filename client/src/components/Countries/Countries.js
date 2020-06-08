@@ -50,11 +50,11 @@ export default Countries;
 
 //STYLES.
 const Wrapper = styled.div`
-  height: 100vh;
-
-  width: 100vw;
   display: flex;
   justify-content: center;
+  background-color: #34435e;
+  padding: 0;
+  margin: 0;
 
   select {
   }

@@ -28,9 +28,6 @@ const Search = ({ countries }) => {
     }
     //condition - if the data includes what user is typing.
   }, [userTyping]);
-
-  console.log(searchedCountries);
-
   return (
     <div>
       <input
