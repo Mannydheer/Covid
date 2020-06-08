@@ -9,6 +9,7 @@ const Country = ({ selectedCountry }) => {
       try {
         let response = await fetch(`/getSingleCountry/${selectedCountry}`);
         let data = await response.json();
+        console.log(data);
         setCountryInfo(data.countryData);
       } catch (e) {
         throw new Error(e);
@@ -19,7 +20,6 @@ const Country = ({ selectedCountry }) => {
 
   return (
     <div>
-      {selectedCountry}
       {countryInfo !== null && (
         <div>
           <div>Country: {countryInfo.country}</div>
@@ -32,3 +32,5 @@ const Country = ({ selectedCountry }) => {
 };
 
 export default Country;
+
+const CountryWrapper = styled.div``;

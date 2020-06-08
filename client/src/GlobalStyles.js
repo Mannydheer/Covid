@@ -33,7 +33,6 @@ const GlobalStyles = createGlobalStyle`
     padding: 0;
     border: 0;
     vertical-align: baseline;
-    height: 100vw;
     background-color: #34435e;
     
 

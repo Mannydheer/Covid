@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import DisplaySearchedCountries from "./DisplaySearchedCountries";
+import styled from "styled-components";
+import Country from "../Countries/Country";
 
 const Search = ({ countries }) => {
   const [userTyping, setUserTyping] = useState("");
@@ -29,7 +31,7 @@ const Search = ({ countries }) => {
     //condition - if the data includes what user is typing.
   }, [userTyping]);
   return (
-    <div>
+    <SearchWrapper>
       <input
         onChange={(e) => setUserTyping(e.target.value)}
         type="text"
@@ -37,10 +39,25 @@ const Search = ({ countries }) => {
       ></input>
       {/*PASS SEARCHED STATE TO DisplaySearchedCountries */}
       {searchedCountries !== "" && (
-        <DisplaySearchedCountries searchedCountries={searchedCountries} />
+        <DisplaySearchedCountries
+          userTyping={userTyping}
+          searchedCountries={searchedCountries}
+        />
       )}
-    </div>
+      {/* SHOW STATISTICS FOR SELECTED COUNTRY. */}
+    </SearchWrapper>
   );
 };
 
 export default Search;
+
+const SearchWrapper = styled.div`
+  input {
+    font-size: 1.2rem;
+    width: 70vw;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    padding: 0.7rem;
+  }
+`;
