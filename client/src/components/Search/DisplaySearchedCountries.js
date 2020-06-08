@@ -1,20 +1,44 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Country from "../Countries/Country";
 
-const DisplaySearchedCountries = ({ searchedCountries, userTyping }) => {
+const DisplaySearchedCountries = ({
+  searchedCountries,
+  userTyping,
+  keyMovementCounter,
+}) => {
+  //STATES.
   const [selectedCountry, setSelectedCountry] = useState(null);
   const [open, setOpen] = useState(false);
 
+  //HANDLERS.
+  //handle when clicking on a country.
   const handleCountryClick = (country) => {
     setSelectedCountry(country);
     setOpen(true);
   };
+  //handle when pressing enter on a country.
+  const handleEventForEnter = (e) => {
+    if (e.code === "Enter") {
+      //find the country from the array.
+      let country = searchedCountries[keyMovementCounter];
+      setSelectedCountry(country);
+      setOpen(true);
+    }
+  };
+  //EVENT LISTENERS.
+  useEffect(() => {
+    window.addEventListener("keydown", handleEventForEnter);
+    return () => {
+      window.removeEventListener("keydown", handleEventForEnter);
+    };
+  });
 
   return (
     <Wrapper>
       <Ul>
-        {searchedCountries.map((country) => {
+        {/* Mapping through all the different countries. */}
+        {searchedCountries.map((country, index) => {
           let firstPart = country
             .split("")
             .splice(0, userTyping.length)
@@ -25,10 +49,14 @@ const DisplaySearchedCountries = ({ searchedCountries, userTyping }) => {
             .join("");
           return (
             //logic for bolding word.
-
             <Li onClick={() => handleCountryClick(country)} key={country}>
               {`${firstPart}`}
-              <strong style={{ opacity: "0.3" }}>{secondPart}</strong>
+              {/* Will change opacity for countries with arrowup and arrowdown. */}
+              {keyMovementCounter === index ? (
+                <strong style={{ opacity: "0.3" }}>{secondPart}</strong>
+              ) : (
+                <strong style={{ opacity: "1" }}>{secondPart}</strong>
+              )}
             </Li>
           );
         })}

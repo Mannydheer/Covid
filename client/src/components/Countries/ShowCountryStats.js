@@ -1,8 +1,7 @@
 import React from "react";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 
 const ShowCountryStats = ({ setOpen, countryInfo, open }) => {
-  console.log(countryInfo);
   return (
     <StyledWrapper open={open}>
       <StyledDesc>
