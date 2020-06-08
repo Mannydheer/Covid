@@ -1,4 +1,4 @@
-### Seek & Sport
+### COVID COUNTRY TRACKER
 
 ```
 App to get stats on COVID based on Country.
