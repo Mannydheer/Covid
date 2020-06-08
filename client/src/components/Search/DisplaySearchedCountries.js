@@ -4,6 +4,12 @@ import Country from "../Countries/Country";
 
 const DisplaySearchedCountries = ({ searchedCountries, userTyping }) => {
   const [selectedCountry, setSelectedCountry] = useState(null);
+  const [open, setOpen] = useState(false);
+
+  const handleCountryClick = (country) => {
+    setSelectedCountry(country);
+    setOpen(true);
+  };
 
   return (
     <Wrapper>
@@ -20,15 +26,20 @@ const DisplaySearchedCountries = ({ searchedCountries, userTyping }) => {
           return (
             //logic for bolding word.
 
-            <Li onClick={() => setSelectedCountry(country)} key={country}>
+            <Li onClick={() => handleCountryClick(country)} key={country}>
               {`${firstPart}`}
               <strong style={{ opacity: "0.3" }}>{secondPart}</strong>
             </Li>
           );
         })}
       </Ul>
+
       {selectedCountry !== null && (
-        <Country selectedCountry={selectedCountry} />
+        <Country
+          setOpen={setOpen}
+          open={open}
+          selectedCountry={selectedCountry}
+        />
       )}
     </Wrapper>
   );
@@ -45,10 +56,10 @@ const Li = styled.li`
   color: white;
   list-style-type: none;
   background-color: #475c85;
-  width: 70vw;
+  width: 100%;
   height: 5vh;
   font-size: 1.6rem;
-  margin: 2px;
+  margin-bottom: 1px;
   border-radius: 25px;
 
   &:hover {

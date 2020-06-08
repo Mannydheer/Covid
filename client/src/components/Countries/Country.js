@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import ShowCountryStats from "./ShowCountryStats";
 
-const Country = ({ selectedCountry }) => {
+const Country = ({ selectedCountry, setOpen, open }) => {
   const [countryInfo, setCountryInfo] = useState(null);
 
   useEffect(() => {
@@ -9,7 +10,6 @@ const Country = ({ selectedCountry }) => {
       try {
         let response = await fetch(`/getSingleCountry/${selectedCountry}`);
         let data = await response.json();
-        console.log(data);
         setCountryInfo(data.countryData);
       } catch (e) {
         throw new Error(e);
@@ -19,15 +19,15 @@ const Country = ({ selectedCountry }) => {
   }, [selectedCountry]);
 
   return (
-    <div>
+    <CountryWrapper>
       {countryInfo !== null && (
-        <div>
-          <div>Country: {countryInfo.country}</div>
-          <div>Cases: {countryInfo.cases}</div>
-          <div>Deaths:{countryInfo.deaths}</div>
-        </div>
+        <ShowCountryStats
+          setOpen={setOpen}
+          open={open}
+          countryInfo={countryInfo}
+        />
       )}
-    </div>
+    </CountryWrapper>
   );
 };
 
