@@ -19,11 +19,16 @@ const DisplaySearchedCountries = ({
   };
   //handle when pressing enter on a country.
   const handleEventForEnter = (e) => {
-    if (e.code === "Enter") {
-      //find the country from the array.
-      let country = searchedCountries[keyMovementCounter];
-      setSelectedCountry(country);
-      setOpen(true);
+    switch (e.code) {
+      case "Enter":
+        let country = searchedCountries[keyMovementCounter];
+        setSelectedCountry(country);
+        setOpen(true);
+        break;
+      case "Escape":
+        setOpen(false);
+      default:
+        break;
     }
   };
   //EVENT LISTENERS.
