@@ -23,7 +23,7 @@ Go to the client directory. Run npm install/yarn install followed by npm start/y
 ### Flow for user.
 
 `Home`
-<img src="Screenshots/home.png" alt="home">
+<img src="Screenshots/Home.png" alt="home">
 
 `Statistics`
 <img src="Screenshots/Stats.png" alt="stats">
