@@ -9,9 +9,16 @@ const Search = ({ countries }) => {
     if (userTyping !== "") {
       //filter through the data.
       let filteredCountries = countries.filter((country) => {
-        // if (country.toLowerCase().includes(userTyping.toLowerCase())) {
-        //   return country;
-        // }
+        let splicedCountry = country
+          //split the string into an array.
+          .split("")
+          //splice beg of country name to how many letters user typed.
+          .splice(0, userTyping.length)
+          //join the array, back into a stirng.
+          .join("");
+        if (splicedCountry.toLowerCase().includes(userTyping.toLowerCase())) {
+          return country;
+        }
       });
       setSearchedCountries(filteredCountries);
     }
@@ -21,6 +28,8 @@ const Search = ({ countries }) => {
     }
     //condition - if the data includes what user is typing.
   }, [userTyping]);
+
+  console.log(searchedCountries);
 
   return (
     <div>
