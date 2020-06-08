@@ -9,7 +9,6 @@ const getAllCountryData = async () => {
   if (getData.status !== 200) {
     return;
   }
-
   let countryData = await getData.json();
   let allCountryData = countryData.map(({ country }) => {
     return country;

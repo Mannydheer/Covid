@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Country from "./Country";
+import styled from "styled-components";
+import Search from "../Search/Search";
 const Countries = () => {
   //WIll get all countries available.
   const [countries, setCountries] = useState(null);
@@ -23,22 +25,37 @@ const Countries = () => {
   }, []);
 
   return (
-    <div>
+    <Wrapper>
       {/* SHOW ALL COUNTRIES. */}
-      {countries !== null && (
-        // The selection will be stored inside state.
-        <select onChange={(e) => setSelectedCountry(e.target.value)}>
-          {countries.map((country) => {
-            return <option key={country}>{country}</option>;
-          })}
-        </select>
-      )}
+      <div>
+        {countries !== null && (
+          <Search countries={countries} />
+          // The selection will be stored inside state.
+          // <select onChange={(e) => setSelectedCountry(e.target.value)}>
+          //   {countries.map((country) => {
+          //     return <option key={country}>{country}</option>;
+          //   })}
+          // </select>
+        )}
+      </div>
       {/* SHOW SINGLE COUNTRY. */}
       {selectedCountry !== null && (
         <Country selectedCountry={selectedCountry} />
       )}
-    </div>
+    </Wrapper>
   );
 };
 
 export default Countries;
+
+//STYLES.
+const Wrapper = styled.div`
+  height: 100vh;
+
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+
+  select {
+  }
+`;

@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
+import styled from "styled-components";
 
 const Country = ({ selectedCountry }) => {
   const [countryInfo, setCountryInfo] = useState(null);
+
   useEffect(() => {
     const fetchCountryData = async () => {
       try {
