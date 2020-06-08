@@ -37,7 +37,6 @@ Go to the client directory. Run npm install/yarn install followed by npm start/y
 ### Built With
 
 ```
-MongoDb - For database.
 Node.js - Backend
 React - FrontEnd
 ```
@@ -52,11 +51,4 @@ Manider Dheer.
 
 ```
 This project is licensed under the MIT License - see the LICENSE.md file for details
-```
-
-### Acknowledgments
-
-```
-Big thank you to Lucas Bassetti - ReactSimpleChatbot.
-Materials UI.
 ```
