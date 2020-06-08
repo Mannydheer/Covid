@@ -4,6 +4,7 @@ const GlobalStyles = createGlobalStyle`
 
   html {
     font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
   
     @media screen and (max-width: 1200px) {
       font-size: 15px
@@ -22,6 +23,7 @@ const GlobalStyles = createGlobalStyle`
     }
 
   }
+ 
 
   html,
   body,
@@ -32,6 +34,9 @@ const GlobalStyles = createGlobalStyle`
     border: 0;
     vertical-align: baseline;
     height: 100vw;
+    background-color: #34435e;
+    
+
     
   }
   table {

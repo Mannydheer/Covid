@@ -52,7 +52,6 @@ export default Countries;
 const Wrapper = styled.div`
   display: flex;
   justify-content: center;
-  background-color: #34435e;
   padding: 0;
   margin: 0;
 
