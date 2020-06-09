@@ -1,9 +1,8 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
+
 const app = express();
-const port = 4000;
-const fetch = require("isomorphic-fetch");
 
 //--------------------HANDLERS--------------------
 const {
@@ -33,4 +32,4 @@ app.use("/", express.static(__dirname + "/"));
 app.get("/getCountries", countryController);
 app.get("/getSingleCountry/:country", selectedCountryController);
 
-app.listen(port, () => console.log(`listening at http://localhost:${port}`));
+module.exports = app;
