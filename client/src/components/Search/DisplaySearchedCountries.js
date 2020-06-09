@@ -60,8 +60,9 @@ const DisplaySearchedCountries = ({
               onClick={() => handleCountryClick(country)}
               key={country}
             >
-              {firstPart}
-              {secondPart}
+              {`${firstPart}`}
+              {/* Will change opacity for countries with arrowup and arrowdown. */}
+              <strong style={{ opacity: "0.4" }}>{secondPart}</strong>
             </Li>
           );
         })}
