@@ -54,14 +54,14 @@ const DisplaySearchedCountries = ({
             .join("");
           return (
             //logic for bolding word.
-            <Li onClick={() => handleCountryClick(country)} key={country}>
-              {`${firstPart}`}
-              {/* Will change opacity for countries with arrowup and arrowdown. */}
-              {keyMovementCounter === index ? (
-                <strong style={{ opacity: "0.3" }}>{secondPart}</strong>
-              ) : (
-                <strong style={{ opacity: "1" }}>{secondPart}</strong>
-              )}
+            <Li
+              index={index}
+              keyMovementCounter={keyMovementCounter}
+              onClick={() => handleCountryClick(country)}
+              key={country}
+            >
+              {firstPart}
+              {secondPart}
             </Li>
           );
         })}
@@ -94,7 +94,8 @@ const Li = styled.li`
   font-size: 1.6rem;
   margin-bottom: 1px;
   border-radius: 25px;
-
+  opacity: ${({ index, keyMovementCounter }) =>
+    index === keyMovementCounter ? `0.8` : `1`};
   &:hover {
     opacity: 0.8;
     cursor: pointer;
