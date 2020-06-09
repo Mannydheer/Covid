@@ -31,7 +31,7 @@ const DisplaySearchedCountries = ({
         break;
     }
   };
-  //EVENT LISTENERS.
+  //EVENT LISTENERS FOR ENTER.
   useEffect(() => {
     window.addEventListener("keydown", handleEventForEnter);
     return () => {
