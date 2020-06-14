@@ -8,7 +8,6 @@ const { BadRequestError, NotFoundError } = require("../Error/CustomError");
 const countryController = async (req, res, next) => {
   try {
     let allCountryData = await getAllCountryData();
-    console.log(allCountryData);
     if (!allCountryData) {
       throw new NotFoundError("Failed fetch for all country data.");
     }
@@ -26,9 +25,12 @@ const selectedCountryController = async (req, res, next) => {
   try {
     //get country from params.
     let { country } = req.params;
-    if (!country) {
+    //!checked by comparing the string value
+    if (country === "undefined" || country === "null") {
       throw new BadRequestError("no country received.");
     }
+    // //TODO => Do I need to check for this condition in this case?
+    // //TODO => If country is null||undefined, the api will automatically throw a fetchError (500) and will go to the catch
     let countryData = await getSingleCountryData(country);
     if (!countryData) {
       throw new NotFoundError("Country not found.");
