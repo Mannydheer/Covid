@@ -6,7 +6,9 @@ import styled from "styled-components";
 const Chart = ({ countryInfo, setOpen, open }) => {
   const handleRefactor = () => {
     let categories = Object.keys(countryInfo);
+    categories.shift();
     let values = Object.values(countryInfo);
+    values.shift();
     let chartArray = [];
 
     categories.forEach((category, index) => {
