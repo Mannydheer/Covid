@@ -12,6 +12,7 @@ const Countries = () => {
         let info = await response.json();
         if (info.status !== 200) {
           throw new Error();
+          xw;
         }
         setCountries(info.allCountryData);
       } catch (e) {
