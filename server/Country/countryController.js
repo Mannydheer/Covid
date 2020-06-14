@@ -26,7 +26,7 @@ const selectedCountryController = async (req, res, next) => {
     //get country from params.
     let { country } = req.params;
     //!checked by comparing the string value
-    if (country === "undefined" || country === "null") {
+    if (country === "null") {
       throw new BadRequestError("no country received.");
     }
     // //TODO => Do I need to check for this condition in this case?
