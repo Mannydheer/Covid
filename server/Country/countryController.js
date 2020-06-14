@@ -8,6 +8,7 @@ const { BadRequestError, NotFoundError } = require("../Error/CustomError");
 const countryController = async (req, res, next) => {
   try {
     let allCountryData = await getAllCountryData();
+    console.log(allCountryData);
     if (!allCountryData) {
       throw new NotFoundError("Failed fetch for all country data.");
     }
