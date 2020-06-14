@@ -64,7 +64,6 @@ describe("GET /getSingleCountry/:country", () => {
     expect(response.status).toBe(200);
   });
 });
-
 //@desc Test for 400 (BadRequest Error). This will check if the params passed in is either NULL
 describe("GET /getSingleCountry/:country", () => {
   it("responds with COVID statistics about a country.", async () => {
@@ -81,7 +80,6 @@ describe("GET /getSingleCountry/:country", () => {
     expect(response.status).toBe(400);
   });
 });
-
 //@desc Test for 404 (NotFound Error). This will make sure that the country params passed is VALID, this will check if the country data exists.
 describe("GET /getSingleCountry/:country", () => {
   it("responds with COVID statistics about a country.", async () => {
