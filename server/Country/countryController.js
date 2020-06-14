@@ -1,5 +1,6 @@
 //Responsible for input/output of endpoints to the Front End.
 const { getAllCountryData, getSingleCountryData } = require("./countryService");
+const { BadRequestError, NotFoundError } = require("../Error/CustomError");
 
 //@endpoint GET /getCountries
 //@desc Fetch to API to get all countries available.
@@ -8,7 +9,7 @@ const countryController = async (req, res, next) => {
   try {
     let allCountryData = await getAllCountryData();
     if (!allCountryData) {
-      throw new Error("Failed fetch for all country data.");
+      throw new NotFoundError("Failed fetch for all country data.");
     }
     return res.status(200).json({ status: 200, allCountryData });
   } catch (err) {
@@ -25,11 +26,11 @@ const selectedCountryController = async (req, res, next) => {
     //get country from params.
     let { country } = req.params;
     if (!country) {
-      throw new Error("no country received.");
+      throw new BadRequestError("no country received.");
     }
     let countryData = await getSingleCountryData(country);
     if (!countryData) {
-      throw new Error("Country not found.");
+      throw new NotFoundError("Country not found.");
     }
     res.status(200).json({ status: 200, countryData });
   } catch (err) {
