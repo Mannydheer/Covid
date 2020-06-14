@@ -60,11 +60,13 @@ const Search = ({ countries }) => {
 
   return (
     <SearchWrapper>
-      <input
-        onChange={(e) => setUserTyping(e.target.value)}
-        type="text"
-        placeholder="Search..."
-      ></input>
+      <InputChartTitle>
+        <input
+          onChange={(e) => setUserTyping(e.target.value)}
+          type="text"
+          placeholder="Search..."
+        ></input>
+      </InputChartTitle>
       {/*PASS SEARCHED STATE TO DisplaySearchedCountries */}
       {searchedCountries !== "" && (
         <DisplaySearchedCountries
@@ -80,10 +82,15 @@ const Search = ({ countries }) => {
 
 export default Search;
 
-const SearchWrapper = styled.div`
+const SearchWrapper = styled.div``;
+
+const InputChartTitle = styled.div`
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
   input {
-    font-size: 1.2rem;
-    width: 70vw;
+    font-size: 1rem;
+    width: 30vw;
     border-radius: 25px;
     border: none;
     outline: none;

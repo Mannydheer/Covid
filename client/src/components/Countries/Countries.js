@@ -4,7 +4,6 @@ import Search from "../Search/Search";
 const Countries = () => {
   //WIll get all countries available.
   const [countries, setCountries] = useState(null);
-
   useEffect(() => {
     const handleCountryData = async () => {
       try {
@@ -12,7 +11,6 @@ const Countries = () => {
         let info = await response.json();
         if (info.status !== 200) {
           throw new Error();
-          xw;
         }
         setCountries(info.allCountryData);
       } catch (e) {
@@ -35,9 +33,10 @@ export default Countries;
 //STYLES.
 const Wrapper = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   padding: 0;
-  margin: 0;
+  margin-left: 10vw;
+  margin-top: 5vh;
 
   select {
   }

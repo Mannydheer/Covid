@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import ShowCountryStats from "./ShowCountryStats";
+import Chart from "../../pages/Chart";
 
 const Country = ({ selectedCountry, setOpen, open }) => {
   const [countryInfo, setCountryInfo] = useState(null);
@@ -21,11 +21,7 @@ const Country = ({ selectedCountry, setOpen, open }) => {
   return (
     <CountryWrapper>
       {countryInfo !== null && (
-        <ShowCountryStats
-          setOpen={setOpen}
-          open={open}
-          countryInfo={countryInfo}
-        />
+        <Chart setOpen={setOpen} open={open} countryInfo={countryInfo} />
       )}
     </CountryWrapper>
   );
