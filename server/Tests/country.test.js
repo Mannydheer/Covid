@@ -2,7 +2,7 @@ const app = require("../index"); // Link to your server file
 const supertest = require("supertest");
 const request = supertest(app);
 const nock = require("nock");
-const { dummy, dummyCountryStatistics } = require("./dummyDataTest");
+const { dummy, dummyCountryStatistics } = require("../Country/dummyDataTest");
 
 //----------------------------/getCountries --------------------
 //@desc Test for 200.
