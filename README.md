@@ -25,9 +25,6 @@ Go to the client directory. Run npm install/yarn install followed by npm start/y
 `Home`
 <img src="Screenshots/Home.png" alt="home">
 
-`Statistics`
-<img src="Screenshots/Stats.png" alt="stats">
-
 ### Prerequisites
 
 ```

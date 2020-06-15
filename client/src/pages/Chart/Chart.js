@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
@@ -9,10 +9,13 @@ am4core.useTheme(am4themes_animated);
 am4core.color("#ff0000");
 
 const Chart = ({ countryInfo, setOpen, open }) => {
+  const [countryName, setCountryName] = useState(null);
   const handleRefactor = () => {
     let categories = Object.keys(countryInfo);
     categories.shift();
     let values = Object.values(countryInfo);
+    setCountryName(values[0]);
+
     values.shift();
     let chartArray = [];
 
@@ -43,10 +46,16 @@ const Chart = ({ countryInfo, setOpen, open }) => {
     pieSeries.tooltip.background.fill = am4core.color("white");
 
     //animation
+    //cleaup
+    return () => {
+      chart.data = null;
+      setCountryName(null);
+    };
   }, [countryInfo]);
 
   return (
     <Wrapper>
+      {countryName !== null && open && <h1>{countryName}</h1>}
       <StyledWrapper open={open} id="chartdiv" />
       <div style={{ display: "flex", justifyContent: "center" }}>
         {open && <button onClick={() => setOpen(false)}>Cancel</button>}
@@ -59,7 +68,12 @@ export default Chart;
 const Wrapper = styled.div`
   position: absolute;
   right: 5vw;
-  top: 20vh;
+  top: 14vh;
+
+  h1 {
+    color: white;
+    text-align: center;
+  }
 
   button {
     z-index: 1000;
