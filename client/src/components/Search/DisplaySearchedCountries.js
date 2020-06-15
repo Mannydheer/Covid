@@ -26,6 +26,7 @@ const DisplaySearchedCountries = ({
         let country = searchedCountries[keyMovementCounter];
         setSelectedCountry(country);
         setOpen(true);
+        setUserTyping(country);
         break;
       case "Escape":
         setOpen(false);
