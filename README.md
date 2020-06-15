@@ -8,6 +8,7 @@ Features:
         - Keyboard to select countries.
         - Also on mouseover.
         - Letters not typed will be displayed differently.
+
 ```
 
 ### Getting Started

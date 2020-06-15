@@ -62,6 +62,7 @@ const Search = ({ countries }) => {
     <SearchWrapper>
       <InputChartTitle>
         <input
+          value={userTyping}
           onChange={(e) => setUserTyping(e.target.value)}
           type="text"
           placeholder="Search..."
@@ -70,6 +71,7 @@ const Search = ({ countries }) => {
       {/*PASS SEARCHED STATE TO DisplaySearchedCountries */}
       {searchedCountries !== "" && (
         <DisplaySearchedCountries
+          setUserTyping={setUserTyping}
           userTyping={userTyping}
           searchedCountries={searchedCountries}
           keyMovementCounter={keyMovementCounter}

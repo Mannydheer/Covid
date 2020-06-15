@@ -6,6 +6,7 @@ const DisplaySearchedCountries = ({
   searchedCountries,
   userTyping,
   keyMovementCounter,
+  setUserTyping,
 }) => {
   //STATES.
   const [selectedCountry, setSelectedCountry] = useState(null);
@@ -16,6 +17,7 @@ const DisplaySearchedCountries = ({
   const handleCountryClick = (country) => {
     setSelectedCountry(country);
     setOpen(true);
+    setUserTyping(country);
   };
   //handle when pressing enter on a country.
   const handleEventForEnter = (e) => {
