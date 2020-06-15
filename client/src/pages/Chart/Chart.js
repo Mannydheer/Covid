@@ -1,7 +1,12 @@
 import React, { useEffect } from "react";
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
+import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 import styled from "styled-components";
+
+//set the theme for animations.
+am4core.useTheme(am4themes_animated);
+am4core.color("#ff0000");
 
 const Chart = ({ countryInfo, setOpen, open }) => {
   const handleRefactor = () => {
@@ -32,6 +37,11 @@ const Chart = ({ countryInfo, setOpen, open }) => {
     chart.data = handleRefactor();
     pieSeries.dataFields.value = "values";
     pieSeries.dataFields.category = "categories";
+    //font color.
+    pieSeries.labels.template.fill = am4core.color("white");
+    pieSeries.tooltip.autoTextColor = false;
+    pieSeries.tooltip.background.fill = am4core.color("white");
+
     //animation
   }, [countryInfo]);
 
@@ -50,6 +60,7 @@ const Wrapper = styled.div`
   position: absolute;
   right: 5vw;
   top: 20vh;
+
   button {
     z-index: 1000;
     border: none;
@@ -73,4 +84,5 @@ const StyledWrapper = styled.div`
   transition: transform 0.5s ease-out;
   transform: ${({ open }) => (open ? `scale(1, 1)` : `scale(0, 0)`)};
   padding: 1rem;
+  color: white;
 `;
