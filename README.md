@@ -8,7 +8,9 @@ Features:
         - Keyboard to select countries.
         - Also on mouseover.
         - Letters not typed will be displayed differently.
-
+        
+    am4charts Library.
+        - Pass data through the am4charts API. 
 ```
 
 ### Getting Started
